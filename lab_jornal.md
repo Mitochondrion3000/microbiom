@@ -32,9 +32,23 @@ Kraken2. Установка
 
 $ git clone https://github.com/DerrickWood/kraken2.git
 $ cd kraken2
-$ ./install_kraken2.sh $KRAKEN2_DIR
-$ nano ~/.bashrc # прописать пути до исполняемых файлов
-$ exec bash
+$ ./install_kraken2.sh ~/Desktop/itmo/microbiom/kraken2
+$ nano ~/.bashrc
+вот такую команду выполяем
+потом во время уствновки программа сама выдала пути к исполяемым файлам и в конец .bashrc я добавил 
+
+export PATH="$PATH:/home/ivan/Desktop/itmo/microbiom/kraken2/kraken2"
+export PATH="$PATH:/home/ivan/Desktop/itmo/microbiom/kraken2/kraken2-build"
+export PATH="$PATH:/home/ivan/Desktop/itmo/microbiom/kraken2/kraken2-inspect" ---- с этим этапом что-то не то 
+
+$ exec bash - применяем изменения (альтернатива source ~/.bashrc)
+и еще всем эти файлам нужно дать права на исполение 
+
+проверяем
+
+which kraken2
+which kraken2-build
+which kraken2-inspect не работает 
 
 • Установка для conda (не рекомендуется из-за нестабильной работы)
 
