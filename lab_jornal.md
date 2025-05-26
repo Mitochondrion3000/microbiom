@@ -48,7 +48,7 @@ $ exec bash - применяем изменения (альтернатива so
 
 which kraken2
 which kraken2-build
-which kraken2-inspect не работает 
+which kraken2-inspect ------------ не работает 
 
 • Установка для conda (не рекомендуется из-за нестабильной работы)
 
