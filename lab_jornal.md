@@ -1,5 +1,6 @@
 вот такое было задание 
 ![image](https://github.com/user-attachments/assets/1fdde9d8-846d-45e1-9746-b5419b5b9d1b)
+а вот ссылка на папку по микробиомам(https://drive.google.com/drive/folders/1GIVDQ8x796n2Q7BvB3RiyZbZO1ZHeKFR)
 
  
  ---
