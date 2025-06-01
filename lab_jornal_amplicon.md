@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/138c198a-b306-427c-8e5f-d5e2e8b156b8)
+
+
 а вот ссылка на папку по микробиомам(https://drive.google.com/drive/folders/1GIVDQ8x796n2Q7BvB3RiyZbZO1ZHeKFR)
 
 📥 Получение данных 
@@ -23,6 +26,7 @@ kraken2 --threads 12 --confidence 0.2 --db /home/ivan/Desktop/itmo/microbiom/nav
 вот столько было классифицированно 
 
 70293 sequences (42.07 Mbp) processed in 1.103s (3824.5 Kseq/m, 2288.90 Mbp/m).
+
   69112 sequences classified (98.32%)
   1181 sequences unclassified (1.68%)
 
@@ -32,6 +36,7 @@ kraken2 --threads 12 --confidence 0.2 --db /home/ivan/Desktop/itmo/microbiom/nav
 если ставим --confidence 0.5
 
 70293 sequences (42.07 Mbp) processed in 1.110s (3801.3 Kseq/m, 2275.03 Mbp/m).
+
   55971 sequences classified (79.63%)
   14322 sequences unclassified (20.37%)
 
@@ -39,7 +44,9 @@ kraken2 --threads 12 --confidence 0.2 --db /home/ivan/Desktop/itmo/microbiom/nav
 ![image](https://github.com/user-attachments/assets/cdd5aa67-2e29-49fa-bbf1-b1870829171c)
 
 если --confidence 0.7 график павиан строить не желает 
+
 70293 sequences (42.07 Mbp) processed in 1.124s (3751.1 Kseq/m, 2245.02 Mbp/m).
+
   44432 sequences classified (63.21%)
   25861 sequences unclassified (36.79%)
 
