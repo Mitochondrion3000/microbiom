@@ -1,7 +1,7 @@
 данные я взял отсюда https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR29762644&display=data-access
 ![image](https://github.com/user-attachments/assets/ffba42f3-7a9b-4f1a-a07d-b9c49f4d6d8b)
 
-
+ 
 conda activate sra_env
 fastq-dump --split-files --gzip /home/ivan/Desktop/itmo/microbiom/SRR29762644 - так мы получили fastq файлы
 
