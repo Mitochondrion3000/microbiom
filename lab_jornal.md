@@ -36,6 +36,23 @@ Kraken2. Установка
 
  kraken2 --confidence 0.1 --paired --threads 60 --report report.txt --use-names --db /home/ivan/Desktop/itmo/microbiom/ /home/ivan/Desktop/itmo/microbiom/SRR29762644_1.fastq.gz /home/ivan/Desktop/itmo/microbiom/SRR29762644_2.fastq.gz
 
+ из интересного не работает один параметр который есть в лекции, говорит что его нет впринципе --minimum-hit-groups 3 вот этот вот, из команды которая была в лекции я убрал штуку которая не дает выводить работу кракена в терминал, описание вывода пункт 2 из раздела что мы получаем, и я поставил --confidence 0.1 потому что иначе у меня ничего не находит(((. Ниже был описан параметр в лекции '--classified-out выдает прочтения, которые были аннотированы' я его не использовал 
+
+
+ ниже будет выписка из декции 
+ 
+ • kraken2 --minimum-hit-groups 3 --confidence 0.5 --paired --
+threads 60 --report report1gr_st_r.txt --use-names --db
+/mnt/disk1/db/k2_db fed1gr_S1_L001_R1_001.fastq
+fed1gr_S1_L001_R2_001.fastq > /dev/null
+
+--minimum-hit-groups 3 и --confidence 0.5 используется для уменьшения ложноположительных
+результатов
+--report выдает отчет о числе прочтений, относящихся к таксонам
+--classified-out выдает прочтения, которые были аннотированы
+
+
+
 ### Что мы поулчаем на выходе
 
 1. **`report.txt`** — *таксономический отчёт в виде таблицы*, содержащий:
