@@ -28,6 +28,57 @@ fastq-dump --split-files --gzip /home/ivan/Desktop/itmo/microbiom/SRR29762644 - 
 
 Kraken2. Установка
 
+После установки файлов с git добавить необходимиые файлы в path у меня не получилось поэтому поставил кракена через конду в отдельное окружение и все заработало 
+
+
+Запуск самого кракена
+
+ kraken2 --confidence 0.1 --paired --threads 60 --report report.txt --use-names --db /home/ivan/Desktop/itmo/microbiom/ /home/ivan/Desktop/itmo/microbiom/SRR29762644_1.fastq.gz /home/ivan/Desktop/itmo/microbiom/SRR29762644_2.fastq.gz
+
+### Что мы поулчаем на выходе
+
+1. **`report.txt`** — *таксономический отчёт в виде таблицы*, содержащий:
+
+   * Долю прочтений, классифицированных к данному таксону
+   * Количество прочтений
+   * Таксономический уровень (D = domain, P = phylum, ... S = species)
+   * Название таксона
+
+   Пример строки в `report.txt`:
+
+   ```
+   13.21  105432  105432  U  0  unclassified
+   86.79  692345  692345  R  1  root
+   ...
+   ```
+
+2. **Стандартный вывод в терминал (или в `--output` файл, если указан)** — построчная классификация каждого прочтения:
+
+   ```
+   C       read-id-1       562     Escherichia coli
+   U       read-id-2       0       unclassified
+   ```
+
+   * `C` — классифицировано
+   * `U` — не классифицировано
+   * `562` — таксономический ID
+   * `Escherichia coli` — название организма (если `--use-names`)
+
+> ⚠️ Если вы **не указали `--output <file>`**, то эти строки появятся в терминале, а не сохранятся.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
 • Исходной код с GitHub
 
 $ git clone https://github.com/DerrickWood/kraken2.git
