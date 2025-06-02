@@ -33,5 +33,11 @@ metabat2 -i scaffolds.fasta -a MB2_result.txt -o metabat2_bins/bin -t
 
 metabat2 -i /home/ivan/Desktop/itmo/microbiom/skin_microbiome/SPAdes_short_k33_77_111/scaffolds.fasta -a MB2_result.txt -o metabat2_bins/bin -t 12 --verbose
 
+#для проверки, можно в то же окружение, ставим CheckM
+conda install bioconda::checkm-genome
+
+#смотрим что насобирали (CheckM)
+checkm lineage_wf -x fa metabat2_bins/ checkm_output/ -t 16
+
 
 
