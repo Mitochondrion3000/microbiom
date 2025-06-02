@@ -25,5 +25,13 @@ samtools index sample.sorted.bam
 conda create -n metabat_env -c bioconda metabat2
 conda activate metabat_env
 
+jgi_summarize_bam_contig_depths --outputDepth MB2_result.txt *.sorted.bam
+
+#Запуск MetaBAT2
+metabat2 -i scaffolds.fasta -a MB2_result.txt -o metabat2_bins/bin -t
+30 --verbose
+
+metabat2 -i /home/ivan/Desktop/itmo/microbiom/skin_microbiome/SPAdes_short_k33_77_111/scaffolds.fasta -a MB2_result.txt -o metabat2_bins/bin -t 12 --verbose
+
 
 
