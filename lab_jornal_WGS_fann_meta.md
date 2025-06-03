@@ -8,31 +8,32 @@ spades.py --meta \
 
 качество quast.py -o quast_report /home/ivan/Desktop/itmo/microbiom/skin_microbiome/SPAdes_meta_k33_77_111_meta/contigs.fasta
 
-All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+| Метрика                   | Значение |
+| ------------------------- | -------- |
+| # contigs (>= 0 bp)       | 46827    |
+| # contigs (>= 1000 bp)    | 1541     |
+| # contigs (>= 5000 bp)    | 136      |
+| # contigs (>= 10000 bp)   | 64       |
+| # contigs (>= 25000 bp)   | 17       |
+| # contigs (>= 50000 bp)   | 0        |
+| Общая длина (>= 0 bp)     | 21561607 |
+| Общая длина (>= 1000 bp)  | 4118643  |
+| Общая длина (>= 5000 bp)  | 1801406  |
+| Общая длина (>= 10000 bp) | 1303472  |
+| Общая длина (>= 25000 bp) | 563839   |
+| Общая длина               | 9036332  |
+| # contigs                 | 9107     |
+| Самый длинный contig      | 42830    |
+| GC-содержание (%)         | 56.82    |
+| N50                       | 909      |
+| N90                       | 542      |
+| auN                       | 4798.0   |
+| L50                       | 1961     |
+| L90                       | 7367     |
+| # N's на 100 kbp          | 0.00     |
 
-Assembly                    contigs 
-# contigs (>= 0 bp)         46827   
-# contigs (>= 1000 bp)      1541    
-# contigs (>= 5000 bp)      136     
-# contigs (>= 10000 bp)     64      
-# contigs (>= 25000 bp)     17      
-# contigs (>= 50000 bp)     0       
-Total length (>= 0 bp)      21561607
-Total length (>= 1000 bp)   4118643 
-Total length (>= 5000 bp)   1801406 
-Total length (>= 10000 bp)  1303472 
-Total length (>= 25000 bp)  563839  
-Total length (>= 50000 bp)  0       
-# contigs                   9107    
-Largest contig              42830   
-Total length                9036332 
-GC (%)                      56.82   
-N50                         909     
-N90                         542     
-auN                         4798.0  
-L50                         1961    
-L90                         7367    
-# N's per 100 kbp           0.00    
+---
+
 
 потом кидаем в prokka и аннотируем
 
