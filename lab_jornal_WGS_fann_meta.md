@@ -6,47 +6,30 @@ spades.py --meta \
     -o SPAdes_meta_k33_77_111 \
     -k 33,77,111
 
-получаем скафолды 
-вечно забываю разницу между контигами и скафолдами, поэтому вот так 
+потом кидаем в prokka и аннотируем
 
-Контиг (от англ. contiguous) — это непрерывная последовательность ДНК, собранная из перекрывающихся фрагментов, полученных, например, методом дробовика. 
+prokka --outdir prokka_no_bin --prefix contigs_no_bin /home/ivan/Desktop/itmo/microbiom/skin_microbiome/SPAdes_meta_k33_77_111_meta/contigs.fasta
 
-Скаффолд (от англ. scaffold) — это упорядоченный набор контигов, соединённых вместе с известными промежутками (gap), где последовательность не определена. Эти промежутки могут быть разной длины, и они символизируют участки ДНК, которые пока не удалось секвенировать или собрать
+достаем все с COG аннотацией
+awk -F'\t' '$6 != "" {print $0}' contigs_no_bin.tsv > genes_with_cog.tsv
 
- bwa index /home/ivan/Desktop/itmo/microbiom/skin_microbiome/SPAdes_short_k33_77_111/scaffolds.fasta индексируем наш файл 
- 
-#Конвертация SAM → BAM
-samtools view -@ 16 -Sb sample.sam > sample.bam
- 
+получаем вот такой файл 
+locus_tag	ftype	length_bp	gene	EC_number	COG	product
+EIEIELNM_00003	CDS	1746	proS_1	6.1.1.15	COG0442	Proline--tRNA ligase
+EIEIELNM_00005	CDS	768	yfcA_1		COG0730	putative membrane transporter protein YfcA
+EIEIELNM_00007	CDS	537	rimP_1		COG0779	Ribosome maturation factor RimP
+EIEIELNM_00008	CDS	972	nusA_1		COG0195	Transcription termination/antitermination protein NusA
+EIEIELNM_00015	CDS	1374	egsA	1.1.1.261	COG0371	Glycerol-1-phosphate dehydrogenase [NAD(P)+]
+EIEIELNM_00017	CDS	369	srlB_1		COG3731	PTS system glucitol/sorbitol-specific EIIA component
+EIEIELNM_00018	CDS	1050	srlE	2.7.1.198	COG3732	PTS system glucitol/sorbitol-specific EIIB component
+EIEIELNM_00019	CDS	579	srlA		COG3730	PTS system glucitol/sorbitol-specific EIIC component
+EIEIELNM_00021	CDS	1923	licR		COG1762	putative licABCH operon regulator
+EIEIELNM_00024	CDS	888	truB_1	5.4.99.25	COG0130	tRNA pseudouridine synthase B
+EIEIELNM_00026	CDS	1368	opuAA	7.6.2.9	COG4175	Glycine betaine transport ATP-binding protein OpuAA
+EIEIELNM_00027	CDS	867	opuAB		COG4176	Glycine betaine transport system permease protein OpuAB
+EIEIELNM_00032	CDS	2202	pnp_1	2.7.7.8	COG1185	Polyribonucleotide nucleotidyltransferase
 
-# Cортировка
-samtools sort -@ 16 sample.bam -o sample.sorted.bam
-
-# Индексирование BAM
-samtools index sample.sorted.bam
-
- bwa mem -t 12 /home/ivan/Desktop/itmo/microbiom/skin_microbiome/SPAdes_short_k33_77_111/scaffolds.fasta /home/ivan/Desktop/itmo/microbiom/skin_microbiome/SRR29762644_1.fastq.gz /home/ivan/Desktop/itmo/microbiom/skin_microbiome/SRR29762644_1.fastq.gz > sample_skin.sam и потом если я правильно понял сырые риды мы выравниваем на ту сборку которая у нас получилась 
-
-затем скачиваем metabat_env
-conda create -n metabat_env -c bioconda metabat2
-conda activate metabat_env
-
-jgi_summarize_bam_contig_depths --outputDepth MB2_result.txt *.sorted.bam
-
-#Запуск MetaBAT2
-metabat2 -i scaffolds.fasta -a MB2_result.txt -o metabat2_bins/bin -t
-30 --verbose
-
-metabat2 -i /home/ivan/Desktop/itmo/microbiom/skin_microbiome/SPAdes_short_k33_77_111/scaffolds.fasta -a MB2_result.txt -o metabat2_bins/bin -t 12 --verbose
-и тут собралось два бина скорее всего потому что запустил не metaspades
-![image](https://github.com/user-attachments/assets/3e4d6014-9a14-4f63-8e53-e440904421a7)
-
-
-#для проверки, можно в то же окружение, ставим CheckM
-conda install bioconda::checkm-genome
-
-#смотрим что насобирали (CheckM)
-checkm lineage_wf -x fa metabat2_bins/ checkm_output/ -t 16 у меня он ничего не насобирал 
+и я не знаю как адекватно визуализировать этот файл тбо все представленное тут это CDS, категорий разных по столбцам gene, EC_number, COG, product тысячи
 
 
 
