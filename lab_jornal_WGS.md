@@ -17,6 +17,11 @@ fastq-dump --split-files --gzip /home/ivan/Desktop/itmo/microbiom/SRR29762644
 ```
 
 Так мы получили `.fastq.gz` файлы.
+Проверили качество 
+![image](https://github.com/user-attachments/assets/5ae95eed-97dc-4604-858f-e814033f8907)
+![image](https://github.com/user-attachments/assets/f5fb0e0b-ddb2-4a3d-b74a-0ef5c72f653f)
+
+
 
 ❓ Вопрос
 Меня очень интересует момент: почему анализ кала может весить как 200 МБ, так и 7 ГБ? Откуда такая разница берется?
