@@ -57,7 +57,27 @@ EIEIELNM_00026	CDS	1368	opuAA	7.6.2.9	COG4175	Glycine betaine transport ATP-bind
 EIEIELNM_00027	CDS	867	opuAB		COG4176	Glycine betaine transport system permease protein OpuAB
 EIEIELNM_00032	CDS	2202	pnp_1	2.7.7.8	COG1185	Polyribonucleotide nucleotidyltransferase
 
-и я не знаю как адекватно визуализировать этот файл тбо все представленное тут это CDS, категорий разных по столбцам gene, EC_number, COG, product тысячи
+по файлу вывел 20 наиболее часто встречающихся гена, исключил последовательности, которые определены как потенциально белок кодирующие
+![image](https://github.com/user-attachments/assets/75e03d0d-232f-421a-9861-1243c055ca9d)
 
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Загрузка данных
+cog_data = pd.read_table('/content/contigs_no_bin.tsv', sep='\t', header=0)  # Если нет заголовков
+df = cog_data[cog_data['product'] != 'hypothetical protein']
+
+# Подсчет встречаемости каждого продукта
+product_counts = df['product'].value_counts().head(20)
+
+# Создание графика
+plt.figure(figsize=(12, 16))
+sns.barplot(y=product_counts.index, x=product_counts.values, palette='viridis')
+plt.title('Top 50 белков по встречаемости')
+plt.xlabel('Количество')
+plt.ylabel('Продукт')
+plt.tight_layout()
+plt.show()
 
 
