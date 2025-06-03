@@ -1,7 +1,3 @@
-spades --pe1-1 /home/ivan/Desktop/itmo/microbiom/skin_microbiome/SRR29762644_1.fastq.gz --pe1-2 /home/ivan/Desktop/itmo/microbiom/skin_microbiome/SRR29762644_2.fastq.gz --disable-gzip-output --threads 12 -o SPAdes_short_k33_77_111 -k 33,77,111
-
-оказыается флаг забыли сюда добавить нужный от этого и плохие результаты
-
 spades.py --meta \
     --pe1-1 /home/ivan/Desktop/itmo/microbiom/skin_microbiome/SRR29762644_1.fastq.gz \
     --pe1-2 /home/ivan/Desktop/itmo/microbiom/skin_microbiome/SRR29762644_2.fastq.gz \
