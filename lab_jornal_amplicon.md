@@ -51,5 +51,6 @@ kraken2 --threads 12 --confidence 0.2 --db /home/ivan/Desktop/itmo/microbiom/nav
   25861 sequences unclassified (36.79%)
 
 
+сделал еще раз в dada2 виды, по функциям не получилось picrust запустить(( 
 
 
